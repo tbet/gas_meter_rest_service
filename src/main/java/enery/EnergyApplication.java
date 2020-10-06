@@ -10,13 +10,15 @@ import java.util.concurrent.TimeUnit;
 @SpringBootApplication
 public class EnergyApplication {
 
-	//private static String pathName = "/git/gasmeter/input";
-	private static String pathName = "/workspace-intelliJ/gas_meter_rest_service/input";
-	private static String fileName = "test_raw.log";
+	//private static String pathName = "/git/gas_meter_rest_service/";
+	private static String fileName = "input/test_raw.log";
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
 		SpringApplication.run(EnergyApplication.class, args);
+
+		//initial load of gas meter value
+
 
 		WatchService watchService
 				= FileSystems.getDefault().newWatchService();
