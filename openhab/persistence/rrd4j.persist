@@ -5,7 +5,6 @@ Strategies {
 }
 
 Items {
-    Consumption : strategy = everyMinute, restoreOnStartup
-    Power : strategy = everyMinute, restoreOnStartup
+    Gas_Consumption : strategy = everyMinute, restoreOnStartup
 }
 

@@ -1,19 +1,12 @@
 sitemap default label="Meter Reading Sitemap"
 {
-    Text   item=Meter_ID label="Zählernummer: [%s]" icon="none"
-    Text   item=Date label="Ablesezeitpunkt UTC: [%s]" 
-    Text   item=Consumption
-    Text   item=Power
-    
-    Switch item=CHART_PERIOD_POWER label="Momentanleistung W" mappings=[0="Tag", 1="Woche", 2="Monat"]
-    Chart  item=Power period=H refresh=60 visibility=[CHART_PERIOD_POWER==0, CHART_PERIOD_POWER=="Uninitialized"]
-    Chart  item=Power period=W refresh=3600 visibility=[CHART_PERIOD_POWER==1]    
-    Chart  item=Power period=M refresh=3600 visibility=[CHART_PERIOD_POWER==2]    
-    
-    Switch item=CHART_PERIOD_CONSUMPTION label="Zählerstand kWh" mappings=[0="Tag", 1="Woche", 2="Monat"]
-    Chart  item=Consumption period=H refresh=60 visibility=[CHART_PERIOD_CONSUMPTION==0, CHART_PERIOD_CONSUMPTION=="Uninitialized"]
-    Chart  item=Consumption period=W refresh=3600 visibility=[CHART_PERIOD_CONSUMPTION==1]    
-    Chart  item=Consumption period=M refresh=3600 visibility=[CHART_PERIOD_CONSUMPTION==2]    
+    Text   item=Gas_Meter_Id label="Zählernummer: [%s]" icon="none"
+    Text   item=Gas_Date label="Ablesezeitpunkt UTC: [%s]"
+    Text   item=Gas_Consumption
+
+    Switch item=CHART_PERIOD_GAS_CONSUMPTION label="Zählerstand m3" mappings=[0="Tag", 1="Woche", 2="Monat"]
+    Chart  item=Gas_Consumption period=H refresh=60 visibility=[CHART_PERIOD_GAS_CONSUMPTION==0, CHART_PERIOD_GAS_CONSUMPTION=="Uninitialized"]
+    Chart  item=Gas_Consumption period=W refresh=3600 visibility=[CHART_PERIOD_GAS_CONSUMPTION==1]
+    Chart  item=Gas_Consumption period=M refresh=3600 visibility=[CHART_PERIOD_GAS_CONSUMPTION==2]
 
 }
-

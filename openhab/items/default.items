@@ -1,6 +1,4 @@
-String Meter_ID (Meter) {http="<[energymetertorsten:6000:JSONPATH($.serverID)] "}
-String Date <clock> (Meter) {http="<[energymetertorsten:6000:JSONPATH($.timestamp)] "}
-Number Power "Leistung [%d W]" <energy> (Meter) {http="<[energymetertorsten:6000:JSONPATH($.power)] "}
-Number Consumption "Zählerstand [%.3f kWh]" <energy> (Meter) {http="<[energymetertorsten:6000:JSONPATH($.v_1_8_0)] "}
-Number CHART_PERIOD_CONSUMPTION (Meter)
-Number CHART_PERIOD_POWER (Meter)
+String Gas_Meter_Id (Meter) {http="<[gasmeter:6000:JSONPATH($.serverID)] "}
+String Gas_Date <clock> (Meter) {http="<[gasmeter:6000:JSONPATH($.timestamp)] "}
+Number Gas_Consumption "Zählerstand [%.d m3]" <energy> (Meter) {http="<[gasmeter:6000:JSONPATH($.consumption)] "}
+Number CHART_PERIOD_Gas_Consumption (Meter)
