@@ -2,7 +2,7 @@ package enery;
 
 public class CompassToCounter {
 
-    private static double counter = 22765.15;
+    private static double counter;
     private static final int trigger_level = 9600; //each channel saturates at -32768 and 32767
     private static final int trigger_hyst = 110;
     private static int trigger_state = 0;
@@ -17,10 +17,15 @@ public class CompassToCounter {
             trigger_state = 0;
         }
         if (old_state == 0 && trigger_state == 1) {
-            counter = counter + trigger_step;
+            counter = JsonValues.getInstance().getConsumption() + trigger_step;
             GasMeterLog.write(compassBean.getLocalDateTime(), counter);
-            JsonValues.getInstance().setPower(counter);;
-            System.out.println("counter = " + counter + " / b = "+b+" " + compassBean);
+            JsonValues.getInstance().setConsumption(counter);;
+            System.out.println("gas meter counter is = " + counter + " / b = "+b+" " + compassBean);
         }
+    }
+
+    public static double getCurrentCounter() {
+        double counter = JsonValues.getInstance().getConsumption();
+        return  counter;
     }
 }

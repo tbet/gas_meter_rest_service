@@ -14,7 +14,7 @@ public class GasMeterLog {
 
     private static DecimalFormat df = new DecimalFormat("0.00");
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy:hh:mm:ss");
-    private static final String fileName = "/git/gasmeter/output/gasmeter.log_diff";
+    private static final String fileName = "/git/gas_meter_rest_service/output/gasmeter.log";
 
     public static void write(LocalDateTime dateTime, double counter) {
         String realfileName = System.getProperty("user.home") + fileName;

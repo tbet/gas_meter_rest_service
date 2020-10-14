@@ -6,7 +6,7 @@ public final class JsonValues {
 
     private static JsonValues INSTANCE;
     private Instant timestamp;
-    private double power;
+    private double consumption;
     private String serverID;
 
     private JsonValues() {
@@ -26,12 +26,12 @@ public final class JsonValues {
         this.serverID = serverID;
     }
 
-    public double getPower() {
-        return power;
+    public double getConsumption() {
+        return consumption;
     }
 
-    public void setPower(double power) {
-        this.power = power;
+    public void setConsumption(double consumption) {
+        this.consumption = consumption;
     }
 
     public Instant getTimestamp() {
