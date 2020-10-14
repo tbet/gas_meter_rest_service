@@ -1,4 +1,4 @@
 String Gas_Meter_Id (Meter) {http="<[gasmeter:6000:JSONPATH($.serverID)] "}
 String Gas_Date <clock> (Meter) {http="<[gasmeter:6000:JSONPATH($.timestamp)] "}
-Number Gas_Consumption "Zählerstand [%.d m3]" <energy> (Meter) {http="<[gasmeter:6000:JSONPATH($.consumption)] "}
-Number CHART_PERIOD_Gas_Consumption (Meter)
+Number Gas_Consumption "Zählerstand [%.3f m3]" <gas> (Meter) {http="<[gasmeter:6000:JSONPATH($.consumption)] "}
+Number CHART_PERIOD_GAS_CONSUMPTION (Meter)
