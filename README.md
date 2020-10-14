@@ -1,11 +1,11 @@
-# electricity_meter_rest_service
+# gas_meter_rest_service
 SpringBoot REST Service to provide gas meter reading via i2c QMC5883L 3-Axis Magnetic Sensor on Raspberry Pi.
 Depends on Python driver for the QMC5883L 3-Axis Magnetic Sensor project 
 
-e.g. http://localhost:8080/energy
+e.g. http://localhost:8081/energy
 >*{
 >*	"timestamp": "2020-10-03T15:19:17Z",
->*	"power": 2352.0,
+>*	"consumption": 2352.0,
 >*	"serverID": "09 01 49 ... 4F 3E 5D",
 >*}
 
@@ -19,7 +19,7 @@ openhab config files to visualize electricity meter included in project
 1. Install OpenHab on Linux Server A e.g. via docker-compose.yml -> https://github.com/openhab/openhab-docker
 >* Install HTTP Binding (http://ServerA:8080/paperui/index.html#/extensions?tab=binding)
 >* Install RRD4j Persistence (http://ServerA:8080/paperui/index.html#/extensions?tab=persistence)
->* Config files will be placed below /var/lib/docker/volumes/openhab_openhab_config
+>* Config files will be placed below /var/lib/docker/volumes/openhab_openhab_conf
 >* Summery page will be availible on http://ServerA:8080/basicui/app
 2. Pepare Linux Server B to serve the REST Service
 >* Connect cable from 3-axis compass to raspberry pi
@@ -28,14 +28,18 @@ openhab config files to visualize electricity meter included in project
 >* maven based SpringBoot Service (mvn clean package)
 4. Transfer build jar file to Server B and start REST Service
 >* Start REST Service via "java -jar gas_meter_rest_service-1.0-SNAPSHOT.jar" 
->* Crontab restart scenario "@reboot /usr/bin/java -jar /home/USERNAME/gas_meter_rest_service-1.0-SNAPSHOT.jar > /dev/null 2>&1"
+>* Crontab restart scenario:
+>>* @reboot /home/pi/git/gas_meter_rest_service/scripts/test_raw.sh > /dev/null 2>&1
+>>* @reboot /usr/bin/java -jar /home/pi/git/gas_meter_rest_service/target/gas_meter_rest_service-1.0-SNAPSHOT.jar > /dev/null 2>&1
 
 ## Java
 Following parameters are relevant
->* value of current gas meter
+>* value of current gas meter in "currentGasValue.txt" file
+>* id of gas meter in "gasMeterId.txt" file
 
 ## Related links
 1. https://github.com/abhiTronix/py-qmc5883l
+2. https://www.kompf.de/tech/gascountmag.html
 
 
 ---------------------
