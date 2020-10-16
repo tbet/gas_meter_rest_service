@@ -4,9 +4,10 @@ sitemap default label="Meter Reading Sitemap"
     Text   item=Gas_Date label="Ablesezeitpunkt Gas UTC: [%s]"
     Text   item=Gas_Consumption label="Zählerstand Gas:"
 
-    Switch item=CHART_PERIOD_GAS_CONSUMPTION label="Zählerstand Gas in m3" mappings=[0="Tag", 1="Woche", 2="Monat"]
+    Switch item=CHART_PERIOD_GAS_CONSUMPTION label="Zählerstand Gas in m3" mappings=[0="Tag", 1="Woche", 2="Monat", 3="Jahr"]
     Chart  item=Gas_Consumption period=H refresh=60 visibility=[CHART_PERIOD_GAS_CONSUMPTION==0, CHART_PERIOD_GAS_CONSUMPTION=="Uninitialized"]
     Chart  item=Gas_Consumption period=W refresh=3600 visibility=[CHART_PERIOD_GAS_CONSUMPTION==1]
     Chart  item=Gas_Consumption period=M refresh=3600 visibility=[CHART_PERIOD_GAS_CONSUMPTION==2]
+    Chart  item=Gas_Consumption period=Y refresh=3600 visibility=[CHART_PERIOD_GAS_CONSUMPTION==3]
 
 }
