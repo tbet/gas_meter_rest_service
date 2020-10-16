@@ -3,8 +3,8 @@ package enery;
 public class CompassToCounter {
 
     private static double counter;
-    private static final int trigger_level = 22000; //each channel saturates at -32768 and 32767
-    private static final int trigger_hyst = 260;
+    private static final int trigger_level = 23100; //each channel saturates at -32768 and 32767
+    private static final int trigger_hyst = 270;
     private static final double trigger_step = 0.01;
 
     public static void calculate(CompassBean compassBean) {
